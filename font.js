@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             result.style.color = "green";
             result.innerHTML = "Correct!"
-            next.style.display = "auto";
+            next.style.display = "inline-block";
         }
         else
         {
