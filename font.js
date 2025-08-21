@@ -10,10 +10,13 @@ document.addEventListener("DOMContentLoaded", function() {
     let prompt = document.querySelector("#prompt");
     let form = document.querySelector("form");
     let result = document.querySelector("#result");
+    let next = document.querySelector("#next");
 
+    next.style.hidden = true;
     /**@type {HTMLInputElement} */
     let fontInput = document.querySelector("#font-input");
-    fontNumber = Math.floor(Math.random() * quizFonts.length)
+    
+    let fontNumber = Math.floor(Math.random() * quizFonts.length)
     prompt.style.fontFamily = quizFonts[fontNumber];
     form.addEventListener("submit", function(event) {
 
