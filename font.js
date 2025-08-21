@@ -16,11 +16,12 @@ document.addEventListener("DOMContentLoaded", function() {
     fontNumber = Math.floor(Math.random() * quizFonts.length)
     prompt.style.fontFamily = quizFonts[fontNumber];
     form.addEventListener("submit", function(event) {
+
         if (!fontInput.value)
         {
             result.innerHTML = "Please type an answer."
         }
-        else if (fontInput.innerHTML == quizFonts[fontNumber])
+        else if (fontInput.value == quizFonts[fontNumber])
         {
             result.style.color = "green";
             result.innerHTML = "Correct!"
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
             result.style.color = "red";
             result.innerHTML = "Incorrect";
         }
+        alert(`${quizFonts[fontNumber]}, you typed: ${fontInput.value}`);
         event.preventDefault();
     });
 });
