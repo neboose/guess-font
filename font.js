@@ -1,7 +1,10 @@
 const quizFonts = [
     "Times Roman",
     "Arial",
-    "Verdana"
+    "Verdana",
+    "Courier New",
+    "Georgia",
+    "Comic Sans MS",
 ]
 
 document.addEventListener("DOMContentLoaded", function() {
