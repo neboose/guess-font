@@ -43,7 +43,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     next.addEventListener("click", function() {
+        let lastFontNumber = fontNumber;
         fontNumber = Math.floor(Math.random() * quizFonts.length)
+        if (fontNumber == lastFontNumber)
+        {
+            fontNumber++;
+        }
         prompt.style.fontFamily = quizFonts[fontNumber];
         fontInput.value = "";
         result.innerHTML = "";
