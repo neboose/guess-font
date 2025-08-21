@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let result = document.querySelector("#result");
     let next = document.querySelector("#next");
 
-    next.style.hidden = true;
+    next.style.display = "none";
     /**@type {HTMLInputElement} */
     let fontInput = document.querySelector("#font-input");
 
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             result.style.color = "green";
             result.innerHTML = "Correct!"
-            next.style.hidden = false;
+            next.style.display = "auto";
         }
         else
         {
