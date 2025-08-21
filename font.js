@@ -52,6 +52,6 @@ document.addEventListener("DOMContentLoaded", function() {
         prompt.style.fontFamily = quizFonts[fontNumber];
         fontInput.value = "";
         result.innerHTML = "";
-        next.style.hidden = true;
+        next.style.display = "hidden";
     });
 });
