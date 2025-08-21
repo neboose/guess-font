@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     next.style.hidden = true;
     /**@type {HTMLInputElement} */
     let fontInput = document.querySelector("#font-input");
-    
+
     let fontNumber = Math.floor(Math.random() * quizFonts.length)
     prompt.style.fontFamily = quizFonts[fontNumber];
     form.addEventListener("submit", function(event) {
@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             result.style.color = "green";
             result.innerHTML = "Correct!"
+            next.style.hidden = false;
         }
         else
         {
@@ -36,5 +37,13 @@ document.addEventListener("DOMContentLoaded", function() {
             result.innerHTML = "Incorrect";
         }
         event.preventDefault();
+    });
+
+    next.addEventListener("click", function() {
+        fontNumber = Math.floor(Math.random() * quizFonts.length)
+        prompt.style.fontFamily = quizFonts[fontNumber];
+        fontInput.value = "";
+        result.innerHTML = "";
+        next.style.hidden = true;
     });
 });
