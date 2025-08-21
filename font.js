@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (!fontInput.value)
         {
+            result.style.color = "black";
             result.innerHTML = "Please type an answer."
         }
         else if (fontInput.value == quizFonts[fontNumber])
@@ -31,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
             result.style.color = "red";
             result.innerHTML = "Incorrect";
         }
-        alert(`${quizFonts[fontNumber]}, you typed: ${fontInput.value}`);
         event.preventDefault();
     });
 });
