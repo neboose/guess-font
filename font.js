@@ -26,13 +26,12 @@ document.addEventListener("DOMContentLoaded", function() {
     prompt.style.fontFamily = quizFonts[fontNumber];
     streakText.innerHTML = "Streak: " + streak;
     form.addEventListener("submit", function(event) {
-
         if (!fontInput.value)
         {
             result.style.color = "black";
             result.innerHTML = "Please type an answer."
         }
-        else if (fontInput.value == quizFonts[fontNumber])
+        else if (fontInput.value.toLowerCase() == quizFonts[fontNumber].toLowerCase())
         {
             result.style.color = "green";
             result.innerHTML = "Correct!"
