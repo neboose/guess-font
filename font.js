@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     mainForm.addEventListener("submit", function(event) {
+        event.preventDefault();
         if (!fontInput.value)
         {
             result.style.color = "black";
@@ -63,16 +64,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 result.style.color = "green";
                 result.innerHTML = "Correct!";
                 next.style.display = "inline-block";
-                form.style.display = "none";
+                mainForm.style.display = "none";
             }
             if (!incorrect) 
             {
                 streak++;
             }
             streakText.innerHTML = "Streak: " + streak;
-            event.preventDefault();
             if (autoNext.checked)
             {
+                alert(`AutoNext is checked!`);
                 newFont();
             }
         }
@@ -84,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
             streakText.innerHTML = "Streak: " + streak;
             incorrect = true;
         }
-        event.preventDefault();
     });
+
+    next.addEventListener("click", newFont)
 });
