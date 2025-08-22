@@ -39,7 +39,14 @@ document.addEventListener("DOMContentLoaded", function() {
         fontNumber = Math.floor(Math.random() * quizFonts.length);
         if (fontNumber == lastFontNumber)
         {
-            fontNumber++;
+            if (fontNumber != quizFonts.length) 
+            {
+                fontNumber++;
+            }
+            else 
+                {
+                fontNumber = 0;
+            }
         }
         prompt.style.fontFamily = quizFonts[fontNumber][0];
         fontInput.value = "";
