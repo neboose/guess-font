@@ -3,12 +3,19 @@
 <html>
     <head>
         <style>
-            p {
+            body {
                 font-size: 24px;
             }
 
             input, button {
                 font-size: 24px;
+            }
+
+            input[type="checkbox"] {
+                width: 24px;
+                height: 24px;
+                position: relative;
+                top: 3px;
             }
         </style>
         <script src="font.js"></script>
@@ -18,11 +25,14 @@
 
     <body>
         <header>
+            <form id="auto-form">
+                <input type="checkbox" id="auto-next">Auto Next
+            </form>
             <p id="streak"></p>
         </header>
         <main>
             <p id="prompt">What is this font?</p>
-            <form>
+            <form id="main-form">
                 <input type="text" id="font-input" autocomplete=off autofocus=on>
                 <input type="submit">
             </form>

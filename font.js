@@ -18,10 +18,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     /**@type {HTMLElement} */
     let prompt = document.querySelector("#prompt");
-    let form = document.querySelector("form");
+    let mainForm = document.querySelector("#main-form");
     let result = document.querySelector("#result");
     let next = document.querySelector("#next");
     let streakText = document.querySelector("#streak");
+    let autoForm = document.querySelector("#auto-form")
 
     next.style.display = "none";
     /**@type {HTMLInputElement} */
