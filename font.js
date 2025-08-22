@@ -22,28 +22,49 @@ document.addEventListener("DOMContentLoaded", function() {
     let result = document.querySelector("#result");
     let next = document.querySelector("#next");
     let streakText = document.querySelector("#streak");
-    let autoForm = document.querySelector("#auto-form")
+    let autoNext = document.querySelector("#auto-next");
 
     next.style.display = "none";
     /**@type {HTMLInputElement} */
     let fontInput = document.querySelector("#font-input");
 
-    let fontNumber = Math.floor(Math.random() * quizFonts.length)
+    let fontNumber = Math.floor(Math.random() * quizFonts.length);
     let incorrect = false;
     prompt.style.fontFamily = quizFonts[fontNumber][0];
     streakText.innerHTML = "Streak: " + streak;
-    form.addEventListener("submit", function(event) {
+
+    function newFont() 
+    {
+        let lastFontNumber = fontNumber;
+        fontNumber = Math.floor(Math.random() * quizFonts.length);
+        if (fontNumber == lastFontNumber)
+        {
+            fontNumber++;
+        }
+        prompt.style.fontFamily = quizFonts[fontNumber][0];
+        fontInput.value = "";
+        result.innerHTML = "";
+        next.style.display = "none";
+        form.style.display = "block";
+        fontInput.focus();
+        incorrect = false;
+    }
+
+    mainForm.addEventListener("submit", function(event) {
         if (!fontInput.value)
         {
             result.style.color = "black";
-            result.innerHTML = "Please type an answer."
+            result.innerHTML = "Please type an answer.";
         }
         else if (quizFonts[fontNumber].some(font => font.toLowerCase() === fontInput.value.toLowerCase()))
         {
-            result.style.color = "green";
-            result.innerHTML = "Correct!"
-            next.style.display = "inline-block";
-            form.style.display = "none";
+            if (autoNext.value == false) 
+            {
+                result.style.color = "green";
+                result.innerHTML = "Correct!";
+                next.style.display = "inline-block";
+                form.style.display = "none";
+            }
             if (!incorrect) 
             {
                 streak++;
@@ -59,21 +80,9 @@ document.addEventListener("DOMContentLoaded", function() {
             incorrect = true;
         }
         event.preventDefault();
-    });
-
-    next.addEventListener("click", function() {
-        let lastFontNumber = fontNumber;
-        fontNumber = Math.floor(Math.random() * quizFonts.length);
-        if (fontNumber == lastFontNumber)
+        if (autoNext.value)
         {
-            fontNumber++;
+            newFont();
         }
-        prompt.style.fontFamily = quizFonts[fontNumber][0];
-        fontInput.value = "";
-        result.innerHTML = "";
-        next.style.display = "none";
-        form.style.display = "block";
-        fontInput.focus();
-        incorrect = false;
     });
 });
