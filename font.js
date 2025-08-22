@@ -84,6 +84,6 @@ document.addEventListener("DOMContentLoaded", function() {
             streakText.innerHTML = "Streak: " + streak;
             incorrect = true;
         }
-
+        event.preventDefault();
     });
 });
