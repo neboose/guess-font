@@ -73,7 +73,6 @@ document.addEventListener("DOMContentLoaded", function() {
             event.preventDefault();
             if (autoNext.checked)
             {
-                alert(`autoNext.value is ${autoNext.value}`);
                 newFont();
             }
         }
