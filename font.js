@@ -7,6 +7,13 @@ const quizFonts = [
     ["Courier New"],
     ["Georgia"],
     ["Comic Sans MS", "Comic Sans"],
+    ["Lobster"],
+    ["Rockwell"],
+    ["Gotham"],
+    ["Wingdings"],
+    ["Webdings"],
+    ["Impact"],
+    ["Papyrus"]
 ]
 
 document.addEventListener("DOMContentLoaded", function() {
