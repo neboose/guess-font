@@ -42,11 +42,10 @@ document.addEventListener("DOMContentLoaded", function() {
             fontNumber++;
         }
         prompt.style.fontFamily = quizFonts[fontNumber][0];
-        alert(`prompt.style.fontFamily is... ${prompt.style.fontFamily}`)
         fontInput.value = "";
         result.innerHTML = "";
         next.style.display = "none";
-        form.style.display = "block";
+        mainForm.style.display = "block";
         fontInput.focus();
         incorrect = false;
     }
@@ -71,6 +70,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 streak++;
             }
             streakText.innerHTML = "Streak: " + streak;
+            event.preventDefault();
+            if (autoNext.value)
+            {
+                newFont();
+            }
         }
         else
         {
@@ -80,10 +84,6 @@ document.addEventListener("DOMContentLoaded", function() {
             streakText.innerHTML = "Streak: " + streak;
             incorrect = true;
         }
-        event.preventDefault();
-        if (autoNext.value)
-        {
-            newFont();
-        }
+
     });
 });
