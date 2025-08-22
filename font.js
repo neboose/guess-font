@@ -80,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function() {
             streakText.innerHTML = "Streak: " + streak;
             if (autoNext.checked)
             {
-                alert(`AutoNext is checked!`);
                 newFont();
             }
         }
