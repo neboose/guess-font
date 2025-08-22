@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
     prompt.style.fontFamily = quizFonts[fontNumber][0];
     streakText.innerHTML = "Streak: " + streak;
     form.addEventListener("submit", function(event) {
+        let incorrect = false;
         if (!fontInput.value)
         {
             result.style.color = "black";
@@ -37,7 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
             result.innerHTML = "Correct!"
             next.style.display = "inline-block";
             form.style.display = "none";
-            streak++;
+            if (!incorrect) 
+            {
+                streak++;
+            }
             streakText.innerHTML = "Streak: " + streak;
         }
         else
@@ -46,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
             result.innerHTML = "Incorrect";
             streak = 0;
             streakText.innerHTML = "Streak: " + streak;
+            incorrect = true;
         }
         event.preventDefault();
     });
@@ -62,6 +67,6 @@ document.addEventListener("DOMContentLoaded", function() {
         result.innerHTML = "";
         next.style.display = "none";
         form.style.display = "block";
-        form.autofocus = "on";
+        fontInput.focus();
     });
 });
