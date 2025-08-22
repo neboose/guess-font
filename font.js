@@ -71,8 +71,9 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             streakText.innerHTML = "Streak: " + streak;
             event.preventDefault();
-            if (autoNext.value)
+            if (autoNext.checked)
             {
+                alert(`autoNext.value is ${autoNext.value}`);
                 newFont();
             }
         }
