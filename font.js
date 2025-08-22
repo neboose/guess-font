@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         else if (quizFonts[fontNumber].some(font => font.toLowerCase() === fontInput.value.toLowerCase()))
         {
-            if (autoNext.value == false) 
+            if (!autoNext.checked) 
             {
                 result.style.color = "green";
                 result.innerHTML = "Correct!";
