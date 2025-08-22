@@ -1,12 +1,12 @@
 let streak = 0;
 
 const quizFonts = [
-    "Times Roman",
-    "Arial",
-    "Verdana",
-    "Courier New",
-    "Georgia",
-    "Comic Sans MS"
+    ["Times Roman", "Times New Roman"],
+    ["Arial"],
+    ["Verdana"],
+    ["Courier New"],
+    ["Georgia"],
+    ["Comic Sans MS", "Comic Sans"]
 ]
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let fontInput = document.querySelector("#font-input");
 
     let fontNumber = Math.floor(Math.random() * quizFonts.length)
-    prompt.style.fontFamily = quizFonts[fontNumber];
+    prompt.style.fontFamily = quizFonts[fontNumber][0];
     streakText.innerHTML = "Streak: " + streak;
     form.addEventListener("submit", function(event) {
         if (!fontInput.value)
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
             result.style.color = "black";
             result.innerHTML = "Please type an answer."
         }
-        else if (fontInput.value.toLowerCase() == quizFonts[fontNumber].toLowerCase())
+        else if (quizFonts[fontNumber].some(font => font.toLowerCase() === fontInput.value.toLowerCase()))
         {
             result.style.color = "green";
             result.innerHTML = "Correct!"
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             fontNumber++;
         }
-        prompt.style.fontFamily = quizFonts[fontNumber];
+        prompt.style.fontFamily = quizFonts[fontNumber][0];
         fontInput.value = "";
         result.innerHTML = "";
         next.style.display = "none";
