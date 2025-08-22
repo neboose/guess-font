@@ -6,7 +6,7 @@ const quizFonts = [
     ["Verdana"],
     ["Courier New"],
     ["Georgia"],
-    ["Comic Sans MS", "Comic Sans"]
+    ["Comic Sans MS", "Comic Sans"],
 ]
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -23,10 +23,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let fontInput = document.querySelector("#font-input");
 
     let fontNumber = Math.floor(Math.random() * quizFonts.length)
+    let incorrect = false;
     prompt.style.fontFamily = quizFonts[fontNumber][0];
     streakText.innerHTML = "Streak: " + streak;
     form.addEventListener("submit", function(event) {
-        let incorrect = false;
         if (!fontInput.value)
         {
             result.style.color = "black";
@@ -68,5 +68,6 @@ document.addEventListener("DOMContentLoaded", function() {
         next.style.display = "none";
         form.style.display = "block";
         fontInput.focus();
+        incorrect = false;
     });
 });
