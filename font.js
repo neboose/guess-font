@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
             fontNumber++;
         }
         prompt.style.fontFamily = quizFonts[fontNumber][0];
+        alert(`prompt.style.fontFamily is... ${prompt.style.fontFamily}`)
         fontInput.value = "";
         result.innerHTML = "";
         next.style.display = "none";
